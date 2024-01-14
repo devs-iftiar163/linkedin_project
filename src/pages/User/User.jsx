@@ -1,5 +1,17 @@
+import { Col, Container, Row } from "react-bootstrap";
+
 const User = () => {
-  return <div>I am User</div>;
+  return (
+    <>
+      <Container>
+        <Row>
+          <Col md={12}>
+            <h2>I am Form User</h2>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
 };
 
 export default User;

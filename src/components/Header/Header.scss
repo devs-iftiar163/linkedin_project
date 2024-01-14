@@ -1,0 +1,119 @@
+header {
+  background: var(--white-color);
+  padding: 5px 0;
+
+  .custom-margin {
+    margin-top: 3px;
+  }
+
+  .logo_area {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .logo {
+      svg {
+        font-size: 40px;
+        color: var(--primary-color);
+      }
+    }
+
+    .bg-color {
+      background: #edf3f8;
+    }
+  }
+
+  .border-right {
+    border-right: 1px solid #eee;
+  }
+
+  .menu-box {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        .menu-icons {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2px;
+
+          &:hover {
+            svg {
+              color: #000;
+            }
+
+            p {
+              color: #000;
+            }
+          }
+
+          svg {
+            font-size: 25px;
+            color: var(--dark-grey);
+            transition: 0.3s;
+          }
+
+          p {
+            font-size: 12px;
+            color: var(--dark-grey);
+            transition: 0.3s;
+          }
+        }
+
+        .user-profile {
+          img {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+          }
+
+          p {
+            font-size: 12px;
+            color: var(--dark-grey);
+          }
+        }
+      }
+    }
+  }
+
+  .item-sidebar {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+
+      li {
+        .side-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2px;
+
+          svg {
+            font-size: 25px;
+            color: var(--dark-grey);
+          }
+
+          p {
+            font-size: 12px;
+            color: var(--dark-grey);
+          }
+        }
+
+        .premium-text {
+          p {
+            text-align: center;
+            font-size: 12px;
+            color: var(--link-color);
+          }
+        }
+      }
+    }
+  }
+}

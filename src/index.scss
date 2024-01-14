@@ -1,0 +1,48 @@
+:root {
+  --primary-color: #1666c5;
+  --secondary-color: rgb(0 0 0 / 90%);
+  --link-color: #915907;
+  --white-color: #fff;
+  --dark-grey: rgba(0, 0, 0, 0.6);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f4f2ee;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Fira Sans", sans-serif;
+  line-height: 1.3em;
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
