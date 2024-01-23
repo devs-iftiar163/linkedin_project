@@ -1,0 +1,48 @@
+// Left Sidebar Design
+.profile-card {
+  background: var(--white-color);
+  border-radius: 5px;
+  .profile-area {
+    img {
+      height: 100px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .profile-photo {
+      display: flex;
+      justify-content: center;
+      margin-top: -42px;
+      img {
+        height: 70px;
+        width: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      gap: 6px;
+      h2 {
+        font-size: 18px;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      p {
+        text-align: center;
+        font-size: 12px;
+        width: 85%;
+        color: var(--dark-grey);
+        line-height: 1.4em;
+      }
+    }
+  }
+}
