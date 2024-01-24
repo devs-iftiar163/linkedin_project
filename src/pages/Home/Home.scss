@@ -45,4 +45,230 @@
       }
     }
   }
+
+  .impression-area {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 18px 12px;
+
+    .prf-view {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        li {
+          font-size: 13px;
+          color: var(--dark-grey);
+          font-weight: 500;
+        }
+      }
+    }
+
+    .pst-imp {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        li {
+          font-size: 13px;
+          color: var(--dark-grey);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .premium-ad {
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 1px solid #eee;
+
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--dark-grey);
+    }
+
+    .box-ad {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 8px;
+
+      svg {
+        margin-top: -6px;
+        fill: #e7a33e;
+      }
+
+      h4 {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--secondary-color);
+      }
+    }
+  }
+
+  .badge-area {
+    padding: 10px 12px;
+    transition: 0.3s;
+    a {
+      .box-item {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 6px;
+
+        svg {
+          font-size: 22px;
+          margin-top: -6px;
+          color: var(--dark-grey);
+        }
+        h4 {
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--secondary-color);
+        }
+      }
+    }
+
+    &:hover {
+      background: #eee;
+    }
+  }
+}
+
+// Right Sidebar
+.right-bar {
+  .follow-card {
+    padding: 18px 12px;
+    background: var(--white-color);
+    border-radius: 5px;
+
+    .add-to-feed {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h2 {
+        font-size: 16px;
+        color: var(--secondary-color);
+        font-weight: 500;
+        line-height: 1.3em;
+      }
+
+      a {
+        svg {
+          margin-top: -6px;
+          fill: var(--dark-grey);
+        }
+      }
+    }
+
+    .do-follow {
+      .follow-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+        gap: 8px;
+        padding: 10px 0;
+        .follow-image {
+          img {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+          }
+        }
+        .follow-content {
+          a {
+            h2 {
+              font-size: 14px;
+              color: var(--secondary-color);
+              line-height: 1.3em;
+            }
+            p {
+              font-size: 10px;
+              color: var(--dark-grey);
+            }
+          }
+
+          .follow-button {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 3px;
+            padding: 6px 15px;
+            border: 1px solid #000;
+            border-radius: 50px;
+            margin-top: 5px;
+            background: transparent;
+
+            svg {
+              color: var(--secondary-color);
+              font-size: 16px;
+            }
+
+            .follow-me {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .recomendation {
+      a {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 8px;
+        color: var(--secondary-color);
+        padding: 5px 10px;
+        border-radius: 5px;
+
+        &:hover {
+          background: #eee;
+        }
+        h2 {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .who-is-hiring {
+    margin-top: 10px;
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+
+  .linked-extra-features {
+    padding: 20px 0;
+    ul {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0px 10px;
+      li {
+        a {
+          font-size: 12px;
+          color: var(--dark-grey);
+
+          &:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
