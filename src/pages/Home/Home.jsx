@@ -71,7 +71,16 @@ const Home = () => {
           </div>
           {/* Timeline Posts */}
           <div className="col-lg-6">
-            <h2>Timeline Post</h2>
+            {/* Timeline Post Input */}
+            <div className="timeline-post">
+              <div className="prof-input">
+                <img
+                  src="https://res.cloudinary.com/dwcmsxchv/image/upload/v1706022021/linkedin_images/esr4x0otqn4ustzbemwg.jpg"
+                  alt=""
+                />
+                <button className="post-button">Start a post</button>
+              </div>
+            </div>
           </div>
           {/* Righ Sidebar */}
           <div className="col-lg-3">
@@ -193,6 +202,13 @@ const Home = () => {
                     <Link>More</Link>
                   </li>
                 </ul>
+              </div>
+              <div className="footer-label">
+                <img
+                  src="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr"
+                  alt=""
+                />
+                <p>LinkedIn Corporation © 2024</p>
               </div>
             </div>
           </div>
