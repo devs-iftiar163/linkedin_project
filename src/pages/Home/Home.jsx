@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
-import { BsFillBoxFill, BsFillInfoSquareFill } from "react-icons/bs";
+import {
+  BsFillBoxFill,
+  BsFillInfoSquareFill,
+  BsThreeDots,
+} from "react-icons/bs";
 import { TbBadgeFilled } from "react-icons/tb";
 import { FaArrowRightLong, FaPlus } from "react-icons/fa6";
+import { GoDotFill, GoFileMedia, GoTriangleDown } from "react-icons/go";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { GrArticle } from "react-icons/gr";
+import { BiWorld } from "react-icons/bi";
 
 const Home = () => {
   return (
@@ -79,6 +87,96 @@ const Home = () => {
                   alt=""
                 />
                 <button className="post-button">Start a post</button>
+              </div>
+              <div className="event-icon-box my-2">
+                <Link className="event-one">
+                  <GoFileMedia />
+                  <h4>Media</h4>
+                </Link>
+                <Link className="event-two">
+                  <FaRegCalendarAlt />
+                  <h4>Event</h4>
+                </Link>
+                <Link className="event-three">
+                  <GrArticle />
+                  <h4>Write Article</h4>
+                </Link>
+              </div>
+            </div>
+            {/* Sort By */}
+            <div className="sort-by">
+              <div className="border-line"></div>
+              <div className="sort-item">
+                <ul>
+                  <li>
+                    <p>Sort by:</p>
+                  </li>
+                  <li>
+                    Top
+                    <GoTriangleDown />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {/* Post Content Card */}
+            <div className="post-content-card">
+              {/* Profile Block */}
+              <div className="post-profile">
+                <div className="display-content">
+                  <div className="prf-head">
+                    <div className="prf-image">
+                      <img
+                        src="https://media.licdn.com/dms/image/D5603AQEY9mpy15NrFA/profile-displayphoto-shrink_200_200/0/1703973138152?e=1711584000&v=beta&t=-a3DWnk9n7shHroMLrFb2HssBPqXPeYYBeiSfuo3-S0"
+                        alt=""
+                      />
+                    </div>
+                    <div className="prf-content">
+                      <h2>Linda Le</h2>
+                      <p>
+                        Mental Health Advocate✨| Recruiter @ LM ✈️ | Founder
+                      </p>
+                    </div>
+                  </div>
+                  <div className="time-stamp">
+                    <ul>
+                      <li>1h</li>
+                      <li>
+                        <GoDotFill />
+                      </li>
+                      <li>Edited</li>
+                      <li>
+                        <GoDotFill />
+                      </li>
+                      <li>
+                        <BiWorld />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                {/* Edit Content Option */}
+                <div className="post-feature">
+                  <div className="feature-icon">
+                    <Link>
+                      <BsThreeDots />
+                    </Link>
+                  </div>
+                  <div className="feature-content">
+                    <ul>
+                      <li>Edit</li>
+                      <li>Delete</li>
+                      <li>Dave</li>
+                      <li>Report</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {/* Post Content */}
+              <div className="post-body">
+                <p>Paragraph</p>
+                <img
+                  src="https://media.licdn.com/dms/image/D5622AQH073l2XI8PJg/feedshare-shrink_800/0/1706200739622?e=1709164800&v=beta&t=__QS2ZtpmcQbvEVk6DaVAEkDH-ePHxxhwAYYysjqCWk"
+                  alt=""
+                />
               </div>
             </div>
           </div>
