@@ -399,8 +399,11 @@
   }
 
   .post-body {
+    padding: 12px 0 35px;
+    border-bottom: 1px solid #eee;
     p {
-      font-size: 16px;
+      padding-bottom: 20px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 1.3em;
       color: var(--secondary-color);
@@ -408,6 +411,25 @@
 
     img {
       width: 100%;
+      height: auto;
+    }
+  }
+
+  .post-react {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    .like {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 6px;
+
+      svg {
+        font-size: 22px;
+      }
     }
   }
 }
@@ -551,5 +573,40 @@
       font-size: 12px;
       color: var(--dark-grey);
     }
+  }
+}
+
+.posting-profile {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  padding-bottom: 20px;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .prof-cont {
+    h4 {
+      font-size: 22px;
+      color: var(--secondary-color);
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--dark-grey);
+    }
+  }
+}
+
+.input-fields-area {
+  padding: 20px 0;
+
+  button {
+    border-radius: 50px;
   }
 }

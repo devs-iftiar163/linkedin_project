@@ -8,11 +8,26 @@ import {
 import { TbBadgeFilled } from "react-icons/tb";
 import { FaArrowRightLong, FaPlus } from "react-icons/fa6";
 import { GoDotFill, GoFileMedia, GoTriangleDown } from "react-icons/go";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt, FaRegCommentDots } from "react-icons/fa";
 import { GrArticle } from "react-icons/gr";
-import { BiWorld } from "react-icons/bi";
+import { BiRepost, BiWorld } from "react-icons/bi";
+import { AiOutlineLike } from "react-icons/ai";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { Modal } from "react-bootstrap";
+import { useState } from "react";
 
 const Home = () => {
+  // Modal Handle State
+  const [modal, setModal] = useState(false);
+
+  const handleModalShow = () => {
+    setModal(true);
+  };
+
+  const handleModalOff = () => {
+    setModal(false);
+  };
+
   return (
     <>
       {/* Linked In HomePage Design */}
@@ -86,7 +101,9 @@ const Home = () => {
                   src="https://res.cloudinary.com/dwcmsxchv/image/upload/v1706022021/linkedin_images/esr4x0otqn4ustzbemwg.jpg"
                   alt=""
                 />
-                <button className="post-button">Start a post</button>
+                <button className="post-button" onClick={handleModalShow}>
+                  Start a post
+                </button>
               </div>
               <div className="event-icon-box my-2">
                 <Link className="event-one">
@@ -177,6 +194,25 @@ const Home = () => {
                   src="https://media.licdn.com/dms/image/D5622AQH073l2XI8PJg/feedshare-shrink_800/0/1706200739622?e=1709164800&v=beta&t=__QS2ZtpmcQbvEVk6DaVAEkDH-ePHxxhwAYYysjqCWk"
                   alt=""
                 />
+              </div>
+              {/* Post Reaction */}
+              <div className="post-react">
+                <div className="like">
+                  <AiOutlineLike />
+                  <p>Like</p>
+                </div>
+                <div className="like">
+                  <FaRegCommentDots />
+                  <p>Comments</p>
+                </div>
+                <div className="like">
+                  <BiRepost />
+                  <p>Repost</p>
+                </div>
+                <div className="like">
+                  <RiSendPlaneFill />
+                  <p>Send</p>
+                </div>
               </div>
             </div>
           </div>
@@ -312,6 +348,48 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal Create Post */}
+      <Modal show={modal} centered onHide={handleModalOff}>
+        <Modal.Body>
+          <div className="posting-profile">
+            <img
+              src="https://res.cloudinary.com/dwcmsxchv/image/upload/v1706022021/linkedin_images/esr4x0otqn4ustzbemwg.jpg"
+              alt=""
+            />
+            <div className="prof-cont">
+              <h4>Iftiar Hossain</h4>
+              <p>post to anyone</p>
+            </div>
+          </div>
+
+          {/* Post Input Fields */}
+          <div className="input-fileds-area">
+            <form action="">
+              <div className="mb-3">
+                <textarea
+                  className="form-control"
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  placeholder="What do you want to talk about?"
+                ></textarea>
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Post a photo"
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <button className="btn btn-md btn-primary">Post</button>
+              </div>
+            </form>
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
