@@ -14,9 +14,15 @@ import { BiRepost, BiWorld } from "react-icons/bi";
 import { AiOutlineLike } from "react-icons/ai";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createPostData, getLinkedinPost } from "../../redux/linkedin/action";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const { linkedin } = useSelector((state) => state.linkedin);
+
   // Modal Handle State
   const [modal, setModal] = useState(false);
 
@@ -27,6 +33,35 @@ const Home = () => {
   const handleModalOff = () => {
     setModal(false);
   };
+
+  // Handle Input Data
+  const [input, setInput] = useState({
+    post: "",
+    photo: "",
+  });
+
+  const handleInputValue = (e) => {
+    setInput((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // Create Data
+  const handlePostCrate = (e) => {
+    dispatch(createPostData(input));
+
+    setInput({
+      post: "",
+      photo: "",
+    });
+  };
+
+  useEffect(() => {
+    dispatch(getLinkedinPost());
+  }, []);
+
+  // Handle Create Post
 
   return (
     <>
@@ -136,85 +171,89 @@ const Home = () => {
               </div>
             </div>
             {/* Post Content Card */}
-            <div className="post-content-card">
-              {/* Profile Block */}
-              <div className="post-profile">
-                <div className="display-content">
-                  <div className="prf-head">
-                    <div className="prf-image">
-                      <img
-                        src="https://media.licdn.com/dms/image/D5603AQEY9mpy15NrFA/profile-displayphoto-shrink_200_200/0/1703973138152?e=1711584000&v=beta&t=-a3DWnk9n7shHroMLrFb2HssBPqXPeYYBeiSfuo3-S0"
-                        alt=""
-                      />
+            {linkedin && linkedin.length > 0
+              ? linkedin.map((item, index) => {
+                  return (
+                    <div className="post-content-card" key={index}>
+                      {/* Profile Block */}
+                      <div className="post-profile">
+                        <div className="display-content">
+                          <div className="prf-head">
+                            <div className="prf-image">
+                              <img
+                                src="https://media.licdn.com/dms/image/D5603AQEY9mpy15NrFA/profile-displayphoto-shrink_200_200/0/1703973138152?e=1711584000&v=beta&t=-a3DWnk9n7shHroMLrFb2HssBPqXPeYYBeiSfuo3-S0"
+                                alt=""
+                              />
+                            </div>
+                            <div className="prf-content">
+                              <h2>Linda Le</h2>
+                              <p>
+                                Mental Health Advocate✨| Recruiter @ LM ✈️ |
+                                Founder
+                              </p>
+                            </div>
+                          </div>
+                          <div className="time-stamp">
+                            <ul>
+                              <li>1h</li>
+                              <li>
+                                <GoDotFill />
+                              </li>
+                              <li>Edited</li>
+                              <li>
+                                <GoDotFill />
+                              </li>
+                              <li>
+                                <BiWorld />
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        {/* Edit Content Option */}
+                        <div className="post-feature">
+                          <div className="feature-icon">
+                            <Link>
+                              <BsThreeDots />
+                            </Link>
+                          </div>
+                          <div className="feature-content">
+                            <ul>
+                              <li>Edit</li>
+                              <li>Delete</li>
+                              <li>Dave</li>
+                              <li>Report</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Post Content */}
+                      <div className="post-body">
+                        <p>{item.post}</p>
+                        <img src={item.photo} alt="" />
+                      </div>
+                      {/* Post Reaction */}
+                      <div className="post-react">
+                        <div className="like">
+                          <AiOutlineLike />
+                          <p>Like</p>
+                        </div>
+                        <div className="like">
+                          <FaRegCommentDots />
+                          <p>Comments</p>
+                        </div>
+                        <div className="like">
+                          <BiRepost />
+                          <p>Repost</p>
+                        </div>
+                        <div className="like">
+                          <RiSendPlaneFill />
+                          <p>Send</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="prf-content">
-                      <h2>Linda Le</h2>
-                      <p>
-                        Mental Health Advocate✨| Recruiter @ LM ✈️ | Founder
-                      </p>
-                    </div>
-                  </div>
-                  <div className="time-stamp">
-                    <ul>
-                      <li>1h</li>
-                      <li>
-                        <GoDotFill />
-                      </li>
-                      <li>Edited</li>
-                      <li>
-                        <GoDotFill />
-                      </li>
-                      <li>
-                        <BiWorld />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                {/* Edit Content Option */}
-                <div className="post-feature">
-                  <div className="feature-icon">
-                    <Link>
-                      <BsThreeDots />
-                    </Link>
-                  </div>
-                  <div className="feature-content">
-                    <ul>
-                      <li>Edit</li>
-                      <li>Delete</li>
-                      <li>Dave</li>
-                      <li>Report</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              {/* Post Content */}
-              <div className="post-body">
-                <p>Paragraph</p>
-                <img
-                  src="https://media.licdn.com/dms/image/D5622AQH073l2XI8PJg/feedshare-shrink_800/0/1706200739622?e=1709164800&v=beta&t=__QS2ZtpmcQbvEVk6DaVAEkDH-ePHxxhwAYYysjqCWk"
-                  alt=""
-                />
-              </div>
-              {/* Post Reaction */}
-              <div className="post-react">
-                <div className="like">
-                  <AiOutlineLike />
-                  <p>Like</p>
-                </div>
-                <div className="like">
-                  <FaRegCommentDots />
-                  <p>Comments</p>
-                </div>
-                <div className="like">
-                  <BiRepost />
-                  <p>Repost</p>
-                </div>
-                <div className="like">
-                  <RiSendPlaneFill />
-                  <p>Send</p>
-                </div>
-              </div>
-            </div>
+                  );
+                })
+              : "Fuck You"}
           </div>
           {/* Righ Sidebar */}
           <div className="col-lg-3">
@@ -365,15 +404,17 @@ const Home = () => {
 
           {/* Post Input Fields */}
           <div className="input-fileds-area">
-            <form action="">
+            <form onSubmit={handlePostCrate}>
               <div className="mb-3">
                 <textarea
                   className="form-control"
-                  name=""
+                  name="post"
                   id=""
                   cols="30"
                   rows="10"
                   placeholder="What do you want to talk about?"
+                  value={input.post}
+                  onChange={handleInputValue}
                 ></textarea>
               </div>
               <div className="mb-3">
@@ -381,6 +422,9 @@ const Home = () => {
                   type="text"
                   placeholder="Post a photo"
                   className="form-control"
+                  name="photo"
+                  value={input.photo}
+                  onChange={handleInputValue}
                 />
               </div>
               <div className="mb-3">
