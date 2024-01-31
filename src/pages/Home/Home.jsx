@@ -16,7 +16,12 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPostData, getLinkedinPost } from "../../redux/linkedin/action";
+import {
+  createPostData,
+  deleteLinkedPost,
+  getLinkedinPost,
+  updatePostData,
+} from "../../redux/linkedin/action";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -40,6 +45,10 @@ const Home = () => {
     photo: "",
   });
 
+  // Edit Mode
+  const [editMode, setEditMode] = useState(false);
+
+  // Handle Input Value
   const handleInputValue = (e) => {
     setInput((prevState) => ({
       ...prevState,
@@ -47,9 +56,28 @@ const Home = () => {
     }));
   };
 
+  // Handle Update Data
+  const handlePostUpdate = (item) => {
+    setEditMode(true);
+    setInput(item);
+    handleModalShow();
+  };
+
+  // Delete Data
+  const handleDeletePost = (id) => {
+    dispatch(deleteLinkedPost(id));
+  };
+
   // Create Data
   const handlePostCrate = (e) => {
-    dispatch(createPostData(input));
+    e.preventDefault();
+
+    if (editMode) {
+      dispatch(updatePostData({ id: input.id, data: input }));
+      setEditMode(false);
+    } else {
+      dispatch(createPostData(input));
+    }
 
     setInput({
       post: "",
@@ -218,9 +246,13 @@ const Home = () => {
                           </div>
                           <div className="feature-content">
                             <ul>
-                              <li>Edit</li>
-                              <li>Delete</li>
-                              <li>Dave</li>
+                              <li onClick={() => handlePostUpdate(item)}>
+                                Edit
+                              </li>
+                              <li onClick={() => handleDeletePost(item.id)}>
+                                Delete
+                              </li>
+                              <li>Save</li>
                               <li>Report</li>
                             </ul>
                           </div>
