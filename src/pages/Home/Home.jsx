@@ -41,6 +41,9 @@ const Home = () => {
 
   // Handle Input Data
   const [input, setInput] = useState({
+    profile: "",
+    prfname: "",
+    prftitle: "",
     post: "",
     photo: "",
   });
@@ -80,6 +83,9 @@ const Home = () => {
     }
 
     setInput({
+      profile: "",
+      prfname: "",
+      prftitle: "",
       post: "",
       photo: "",
     });
@@ -208,17 +214,11 @@ const Home = () => {
                         <div className="display-content">
                           <div className="prf-head">
                             <div className="prf-image">
-                              <img
-                                src="https://media.licdn.com/dms/image/D5603AQEY9mpy15NrFA/profile-displayphoto-shrink_200_200/0/1703973138152?e=1711584000&v=beta&t=-a3DWnk9n7shHroMLrFb2HssBPqXPeYYBeiSfuo3-S0"
-                                alt=""
-                              />
+                              <img src={item.profile} alt="" />
                             </div>
                             <div className="prf-content">
-                              <h2>Linda Le</h2>
-                              <p>
-                                Mental Health Advocate✨| Recruiter @ LM ✈️ |
-                                Founder
-                              </p>
+                              <h2>{item.prfname}</h2>
+                              <p>{item.prftitle}</p>
                             </div>
                           </div>
                           <div className="time-stamp">
@@ -285,7 +285,7 @@ const Home = () => {
                     </div>
                   );
                 })
-              : "Fuck You"}
+              : "No Post Yet"}
           </div>
           {/* Righ Sidebar */}
           <div className="col-lg-3">
@@ -437,6 +437,33 @@ const Home = () => {
           {/* Post Input Fields */}
           <div className="input-fileds-area">
             <form onSubmit={handlePostCrate}>
+              <div className="mb-3">
+                <input
+                  className="form-control"
+                  name="profile"
+                  placeholder="Profile Photo"
+                  value={input.profile}
+                  onChange={handleInputValue}
+                ></input>
+              </div>
+              <div className="mb-3">
+                <input
+                  className="form-control"
+                  name="prfname"
+                  placeholder="Profile Name"
+                  value={input.prfname}
+                  onChange={handleInputValue}
+                ></input>
+              </div>
+              <div className="mb-3">
+                <input
+                  className="form-control"
+                  name="prftitle"
+                  placeholder="Designation"
+                  value={input.prftitle}
+                  onChange={handleInputValue}
+                ></input>
+              </div>
               <div className="mb-3">
                 <textarea
                   className="form-control"
